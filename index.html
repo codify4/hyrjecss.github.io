@@ -61,6 +61,10 @@
       margin: 0.5rem 0;
     }
 
+    section a {
+      text-decoration: none;
+    }
+
     .code-snippet {
       background: #f4f4f4;
       padding: 1rem;
@@ -71,10 +75,25 @@
       margin: 1rem 0;
     }
 
+    .box-model {
+      width: 200px;
+      height: 200px;
+      background: #007BFF;
+      padding: 20px;
+      border: 5px solid #000;
+      margin: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+    }
+
     footer {
       text-align: center;
       padding: 1rem 0;
-      background: #333;
+      background: linear-gradient(135deg, #007BFF, #00C6FF);
       color: white;
     }
 
@@ -94,6 +113,46 @@
       height: 50px;
       margin-right: 1rem;
       border: 1px solid #ddd;
+    }
+    
+    .quiz-btn {
+      padding: 15px 50px;
+      background: linear-gradient(135deg, #007BFF, #00C6FF);
+      color: white;
+      font-size: large;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 20px 0;
+    }
+
+    .quiz-btn:hover {
+      background: linear-gradient(135deg, #00C6FF, #007BFF);
+      color: white;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .animated-square {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      animation: moveAndChange 2s infinite;
+    }
+
+    @keyframes moveAndChange {
+      0% {
+        transform: translate(0, 0);
+        background-color: blue;
+      }
+      50% {
+        transform: translate(100px, 0);
+        background-color: red;
+      }
+      100% {
+        transform: translate(0, 0);
+        background-color: blue;
+      }
     }
   </style>
 </head>
@@ -148,12 +207,16 @@
     <section>
       <h2>Box Model</h2>
       <p>Box Model është struktura që përcakton si shfaqen elementët HTML. Ai përbëhet nga:</p>
-      <ul>
-        <li><strong>Content:</strong> Përmbajtja reale.</li>
-        <li><strong>Padding:</strong> Hapësira midis përmbajtjes dhe kufirit.</li>
-        <li><strong>Border:</strong> Kufiri rreth elementit.</li>
-        <li><strong>Margin:</strong> Hapësira jashtë kufirit që ndan elementët.</li>
-      </ul>
+      <div>
+        <ul>
+          <li><strong>Content:</strong> Përmbajtja reale.</li>
+          <li><strong>Padding:</strong> Hapësira midis content dhe border.</li>
+          <li><strong>Border:</strong> Kufiri rreth elementit.</li>
+          <li><strong>Margin:</strong> Hapësira jashtë border që ndan elementët.</li>
+        </ul>
+
+        <div class="box-model">Box Model</div>
+      </div>
     </section>
 
     <section>
@@ -165,19 +228,28 @@
         <li><strong>RGB:</strong> P.sh., rgb(255, 87, 51).</li>
       </ul>
       <div class="color-example">
-        <div class="color-box" style="background: rgb(255, 87, 51);"></div>
-        <p>#FF5733</p>
-        <p>rgb(255, 87, 51)</p>
+        <div class="color-box" style="background: #ff0000;"></div>
+        <ul>
+          <li>red</li>
+          <li>#ff0000</li>
+          <li>rgb(255, 0, 0)</li>
+        </ul>
       </div>
       <div class="color-example">
-        <div class="color-box" style="background: #22c1c3;"></div>
-        <p>#22c1c3</p>
-        <p>rgb(34, 193, 195)</p>
+        <div class="color-box" style="background: greenyellow"></div>
+        <ul>
+          <li>greenyellow</li>
+          <li>#adff2f</li>
+          <li>rgb(173, 255, 47)</li>
+        </ul>
       </div>
       <div class="color-example">
-        <div class="color-box" style="background: rgb(0, 123, 255);"></div>
-        <p>#007BFF</p>
-        <p>rgb(0, 123, 255)</p>
+        <div class="color-box" style="background: rgb(0, 255, 255)"></div>
+        <ul>
+          <li>cyan</li>
+          <li>#00FFFF</li>
+          <li>rgb(0, 255, 255)</li>
+        </ul>
       </div>
     </section>
 
@@ -185,25 +257,44 @@
       <h2>Animacionet</h2>
       <p>Animacionet krijojnë efekte vizuale për të përmirësuar interaktivitetin.</p>
       <div class="code-snippet">
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
+        <ul style="list-style-type: none; gap: 20px;">
+          <li>
+            .animated-square {
+              width: 100px;
+              height: 100px;
+              background-color: blue;
+              animation: moveAndChange 2s infinite;
+            }
+          </li>
+          <li>
+            @keyframes moveAndChange {
+              0% {
+                transform: translate(0, 0);
+                background-color: blue;
+              }
+              50% {
+                transform: translate(100px, 0);
+                background-color: red;
+              }
+              100% {
+                transform: translate(0, 0);
+                background-color: blue;
+              }
+            }
+          </li>
+        </ul>
+      </div>
+      <p>Animacioni:</p>
+      <div class="animated-square"></div>
+    </section>
 
-        div {
-          animation: fadeIn 2s ease-in-out;
-        }
-      </div>
-      <p>Provo animacionin:</p>
-      <div class="code-snippet">
-        &lt;div style="width: 100px; height: 100px; background: #007BFF; animation: fadeIn 2s ease-in-out;"&gt;&lt;/div&gt;
-      </div>
-      <div style="width: 100px; height: 100px; background: #007BFF; animation: fadeIn 2s ease-in-out;"></div>
+    <section>
+      <a href="quiz.html" class="quiz-btn">CSS Quiz</a>
     </section>
   </div>
   
   <footer>
-    <p>&copy; 2024 - Hyrje në CSS. Krijuar për të ndihmuar studentët të mësojnë bazat e stilizimit.</p>
+    <p>&copy; 2024 - Hyrje në CSS. Krijuar nga Ijon Kushta dhe Ilsen Shaho</p>
   </footer>
 </body>
 </html>
