@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyrje në CSS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #007BFF, #00C6FF);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    section {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #007BFF;
+    }
+
+    section p {
+      margin: 0.5rem 0;
+    }
+
+    .code-snippet {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: monospace;
+      color: #333;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #333;
+      color: white;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .color-example {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .color-box {
+      width: 50px;
+      height: 50px;
+      margin-right: 1rem;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hyrje në CSS</h1>
+    <p>Një udhëzues për bazat e CSS për ndërtimin e faqeve të bukura web.</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Çfarë është CSS?</h2>
+      <p>CSS (Cascading Style Sheets) është gjuha që përdoret për të stilizuar dhe dizajnuar faqet e internetit. Ajo ndan strukturën (HTML) nga paraqitja (CSS), duke e bërë faqen më të organizuar dhe më tërheqëse.</p>
+      <p>Përfitimet përfshijnë konsistencë në dizajn, mirëmbajtje më të lehtë dhe përvojë më të mirë për përdoruesin.</p>
+    </section>
+
+    <section>
+      <h2>Sintaksa e CSS</h2>
+      <p>Formati bazë i një rregulli CSS është:</p>
+      <div class="code-snippet">
+        selektori { property: value; }
+      </div>
+      <p>Shembull:</p>
+      <div class="code-snippet">
+        p {
+          color: blue;
+          font-size: 16px;
+        }
+      </div>
+    </section>
+
+    <section>
+      <h2>Llojet e CSS</h2>
+      <p><strong>Inline CSS:</strong> Vendos stil direkt në elementin HTML.</p>
+      <div class="code-snippet">
+        &lt;p style="color: red;"&gt;Tekst i kuq&lt;/p&gt;
+      </div>
+      <p><strong>Internal CSS:</strong> Përdor tag-un &lt;style&gt; brenda dokumentit HTML.</p>
+      <div class="code-snippet">
+        &lt;style&gt;
+        h1 {
+          text-align: center;
+        }
+        &lt;/style&gt;
+      </div>
+      <p><strong>External CSS:</strong> Ruhet në një file të veçantë dhe lidhet përmes &lt;link&gt;.</p>
+      <div class="code-snippet">
+        &lt;link rel="stylesheet" href="styles.css"&gt;
+      </div>
+    </section>
+
+    <section>
+      <h2>Box Model</h2>
+      <p>Box Model është struktura që përcakton si shfaqen elementët HTML. Ai përbëhet nga:</p>
+      <ul>
+        <li><strong>Content:</strong> Përmbajtja reale.</li>
+        <li><strong>Padding:</strong> Hapësira midis përmbajtjes dhe kufirit.</li>
+        <li><strong>Border:</strong> Kufiri rreth elementit.</li>
+        <li><strong>Margin:</strong> Hapësira jashtë kufirit që ndan elementët.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Ngjyrat në CSS</h2>
+      <p>Mënyrat për të zgjedhur ngjyrat përfshijnë:</p>
+      <ul>
+        <li><strong>Named Colors:</strong> P.sh., red, blue.</li>
+        <li><strong>Hex Codes:</strong> P.sh., #FF5733.</li>
+        <li><strong>RGB:</strong> P.sh., rgb(255, 87, 51).</li>
+      </ul>
+      <div class="color-example">
+        <div class="color-box" style="background: #FF5733;"></div>
+        <p>#FF5733</p>
+      </div>
+      <div class="color-example">
+        <div class="color-box" style="background: rgb(34, 193, 195);"></div>
+        <p>rgb(34, 193, 195)</p>
+      </div>
+      <div class="color-example">
+        <div class="color-box" style="background: #007BFF;"></div>
+        <p>#007BFF</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Animacionet</h2>
+      <p>Animacionet krijojnë efekte vizuale për të përmirësuar interaktivitetin.</p>
+      <div class="code-snippet">
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        div {
+          animation: fadeIn 2s ease-in-out;
+        }
+      </div>
+      <p>Provo animacionin:</p>
+      <div class="code-snippet">
+        &lt;div style="width: 100px; height: 100px; background: #007BFF; animation: fadeIn 2s ease-in-out;"&gt;&lt;/div&gt;
+      </div>
+      <div style="width: 100px; height: 100px; background: #007BFF; animation: fadeIn 2s ease-in-out;"></div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 - Hyrje në CSS. Krijuar për të ndihmuar studentët të mësojnë bazat e stilizimit.</p>
+  </footer>
+</body>
+</html>
